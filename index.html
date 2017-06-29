@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <title>Git 101 | TailorDev Academy</title>
+
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="assets/css/reveal-base.css">
+        <link rel="stylesheet" href="assets/css/reveal.css">
+        <link rel="stylesheet" href="assets/css/reveal-theme.css" id="theme">
+        <link rel="stylesheet" href="assets/css/custom.css">
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="assets/reveal.js/lib/css/zenburn.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="assets/css/custom.css">
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match(/print-pdf/gi) ? 'assets/reveal.js/css/print/pdf.css' : 'assets/reveal.js/css/print/paper.css';
+            document.getElementsByTagName('head')[0].appendChild( link );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="assets/reveal.js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+        <style>
+            .reveal pre {
+                margin-bottom: 3rem;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section data-markdown>
+                    <script type="text/template">
+                        # Git 101
+
+                        <img src="images/TailorDev-Academy.png" class="logo">
+                    </script>
+                </section>
+
+                <section data-markdown="help.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:"></section>
+                <section data-markdown="agenda.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:"></section>
+                <section data-markdown="1-introduction.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:"></section>
+                <section data-markdown="2-working-alone.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:"></section>
+                <section data-markdown="3-collaborating-with-git.md" data-separator="^\n\n\n" data-separator-vertical="^\n\n" data-separator-notes="^Note:"></section>
+
+                <section data-markdown>
+                    <script type="text/template">
+                        # The end.
+                    </script>
+                </section>
+            </div>
+        </div>
+
+        <footer>
+            <p>
+                <strong>Git 101</strong> | This content by
+                <a href="https://academy.tailordev.fr/">TailorDev Academy</a>
+                is licensed under
+                <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+            </p>
+        </footer>
+
+        <script src="assets/reveal.js/lib/js/head.min.js"></script>
+        <script src="assets/reveal.js/js/reveal.js"></script>
+
+        <script>
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+                slideNumber: 'c/t',
+                transition: Reveal.getQueryHash().transition || 'slide',
+
+                dependencies: [
+                    { src: 'assets/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'assets/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'assets/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'assets/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                ]
+            });
+        </script>
+    </body>
+</html>
