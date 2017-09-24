@@ -11,7 +11,6 @@
     - create a `git` repository
     - start tracking changes
     - differences, history, stash
-    - branching
 
 
 ## This afternoon
@@ -19,5 +18,4 @@
 * Collaborating with Git
     - pull, push, remote
     - introducing GitHub/GitLab
-    - simple workflows
-    - code reviews
+    - branching
