@@ -16,6 +16,6 @@
 ## This afternoon
 
 * Collaborating with Git
+    - branching
     - pull, push, remote
     - introducing GitHub/GitLab
-    - branching
