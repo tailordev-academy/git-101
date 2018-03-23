@@ -3,7 +3,7 @@
 📌 Learning objectives:
 
 - Learn to collaborate with Git
-- Discover GitHub/GitLab
+- Discover GitLab/GitHub
 - Start working in team
 
 
@@ -31,8 +31,8 @@ or network somewhere.
 
 ``` bash
 $ git remote -v
-origin   git@github.com:TailorDev/slides-git-at-michelin.git (fetch)
-origin   git@github.com:TailorDev/slides-git-at-michelin.git (push)
+origin	git@github.com:tailordev-academy/git-101.git (fetch)
+origin	git@github.com:tailordev-academy/git-101.git (push)
 ```
 
 ``` bash
@@ -85,88 +85,169 @@ wiki and issue tracking features.
 ![](images/gitlab-logo.png)
 
 
-<!-- .slide: class="hands-on" -->
-## 🚀 Hands-on
+### Integrated issue tracking
 
-TODO
-
-
-## Branching
-
-Branches are what naturally happens when you want to work on multiple features
-at the same time.
-
-You wouldn't want to end up with a `master` branch which has Feature A half done
-and Feature B half done.
+![](images/gitlab-issues.png)
 
 
-### Creating a branch
+### Enriched markdown support
 
-`git branch` lists the local branches of your project:
-
-``` bash
-$ git branch
-* master
-```
-
-`git checkout feature` switches to the branch named `feature` if it
-exists. To create a branch and switch to it, you can also use:
-
-``` bash
-$ git checkout -b feature
-Switched to a new branch 'feature'
-```
+![](images/gitlab-markdown.png)
 
 
-<!-- .slide: class="hands-on" -->
-## 🚀 Hands-on
+### Confidential issues
 
-1. Create a branch named `feature`
-2. Switch to it (if not done in a single command)
-3. Create and commit the following files: `pluton.txt`, `jupyter.txt` and
-   `earth.txt`
-4. Switch to the `master` branch and see what happens
+![](images/gitlab-confidential-issues.png)
 
 
-### Merging a branch
+### Issue boards
 
-Merging is Git's way of putting a forked history back together again. The `git
-merge` command lets you take the independent lines of development created by
-`git branch` and integrate them into a single branch.
-
-``` bash
-$ git merge feature
-```
-
-Always generate a merge commit:
-
-``` bash
-$ git merge --no-ff feature
-```
+![](images/gitlab-issue-boards.png)
 
 
-![](images/merge-ff-no-ff.png)
+### Merge Requests
+
+![](images/gitlab-merge-requests.png)
 
 
-### Deleting a branch
+### Diff (side by side)
 
-``` bash
-$ git branch -d feature
-```
+![](images/gitlab-diff.png)
 
-Force delete a branch with `-D`:
 
-``` bash
-$ git branch -D branch-not-merged
-```
+### Resolve conflicts
+
+![](images/gitlab-merge-conflicts.png)
+
+
+### Activity stream
+
+![](images/gitlab-activity-stream.png)
+
+
+### Protected branches
+
+![](images/gitlab-protected-branches.png)
+
+
+### CI/CD
+
+![](images/gitlab-ci.png)
 
 
 <!-- .slide: class="hands-on" -->
 ## 🚀 Hands-on
 
-1. Switch to `master` and merge `feature` into it
-2. View the log with the `--graph` option
-3. Create a branch named `feature-no-ff`
-4. Add a new file `mercury.txt` and commit it
-5. Switch to `master` and merge this branch with the `--no-ff` option
-6. View the log with the `--graph` option
+1. Log in to **https://gitlab.com/**
+2. Create a group
+3. Create a project inside this group
+4. Add a `README.md` file _via_ GitLab
+5. Clone this repository locally
+
+
+<!-- .slide: class="hands-on" -->
+## 🚀 Hands-on
+
+1. Create a feature branch
+2. Add a `CONTRIBUTING.md` file
+3. Push this branch to GitLab
+4. Open a merge request
+5. Review your changes and merge
+6. Synchronize your local repository
+
+
+## Workflows
+
+Git can support your project not just with version control, but also with
+collaboration and release management.
+
+There are many workflows but let's focus on a simple one.
+
+
+### The simple Git branching model
+
+![](images/z-git-branching.jpg)
+
+- `master` must always be deployable
+- all changes made through **feature branches** (merge request + merge)
+- rebase to avoid/resolve conflicts; merge in to `master`
+
+
+#### DO ...
+
+- keep `master` in working order
+- rebase your feature branches
+    - pull in (rebase on top of) changes
+- tag releases
+- push feature branches for discussion
+- learn to rebase
+
+
+#### DON'T ...
+
+- merge in broken code
+- commit onto `master` directly
+    - no hotfix onto `master`, use a feature branch
+- rebase `master`
+- merge with conflicts, handle conflicts upon rebasing
+
+
+## Git rebase
+
+`git rebase` "replays" the commits of your branch on top of a branch, usually
+`master`.
+
+You may have to "force-push" your branch (`-f`) since commits are applied again
+(identifiers change).
+
+
+![](images/git-rebase.png)
+
+
+### Pull = Fetch + Merge
+
+`git pull` is a shortcut for `git fetch` + `git merge`.
+
+`git fetch` retrieves the commits from a remote repository, but do not apply
+them on your working directory. `git merge` applies them.
+
+You can use `--rebase` to rebase a branch on pull:
+
+``` bash
+$ git pull --rebase origin master
+```
+
+
+<!-- .slide: class="hands-on" -->
+## 🚀 Hands-on
+
+1. Modify the `README.md` file **on GitLab**
+2. Modify the `README.md` file **locally**
+3. Push your change without synchronizing your local repository and see what
+   happens
+4. Rebase your local branch and push it
+
+Congratulations, you have resolved your first conflict 🎉
+
+
+<!-- .slide: class="hands-on" -->
+## 🚀 Hands-on
+
+1. Give access to your GitLab project to a teammate
+2. Tell her to propose a change to the `README.md` file
+3. Review her code, you can add comments
+4. Once everything looks good, accept the merge request
+
+Invert the roles and do these steps again.
+
+
+<!-- .slide: class="hands-on" -->
+## 🚀 Hands-on
+
+1. Each team creates a simple issue, for instance to add a few [lorem
+   ipsum](http://lipsum.com/) paragraphs to the `README.md` file
+2. Each team forks a project from another team and proposes a fix for the issue
+   of that project
+3. You can edit your own `README.md` file in the meantime
+4. Review the merge request, comment it if needed
+5. Accept the merge request when it looks good
